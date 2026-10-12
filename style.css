@@ -1,0 +1,407 @@
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand & Accent Colors */
+  --primary-color: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: #eef2ff;
+  --primary-glow: rgba(79, 70, 229, 0.25);
+
+  /* Neutrals & Surfaces */
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-alt: #f1f5f9;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --border-color: #e2e8f0;
+  --border-focus: #c7d2fe;
+
+  /* Status Colors */
+  --success-color: #10b981;
+  --danger-color: #cbd5e1;
+
+  /* Card Shadows (Interview Question 2) */
+  --shadow-default: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -2px rgba(0, 0, 0, 0.05);
+
+  --shadow-card-hover: 0 20px 30px -10px rgba(15, 23, 42, 0.12),
+    0 8px 12px -4px rgba(15, 23, 42, 0.06);
+
+  --shadow-popular: 0 20px 35px -10px rgba(79, 70, 229, 0.25),
+    0 4px 12px -2px rgba(79, 70, 229, 0.15);
+
+  --shadow-popular-hover: 0 28px 45px -12px rgba(79, 70, 229, 0.35),
+    0 8px 16px -4px rgba(79, 70, 229, 0.2);
+
+  /* Typography & Sizing */
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Styles
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+  flex: 1 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. Header Section (Flexbox Alignment)
+   -------------------------------------------------------------------------- */
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sub-badge {
+  display: inline-block;
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+}
+
+.main-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 0.85rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   4. DELIVERABLE 1: Three Pricing Cards (CSS Flexbox Layout)
+   -------------------------------------------------------------------------- */
+.pricing-table {
+  /* Using Flexbox to distribute cards with equal spacing and height */
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  /* Cards stretch to equal height */
+  gap: 2rem;
+  /* Clean gutters between cards */
+  margin-bottom: 5rem;
+  padding: 1rem 0;
+}
+
+/* Base Card Styling */
+.pricing-card {
+  /* Flex item configuration: distribute available space evenly */
+  flex: 1 1 0;
+  min-width: 280px;
+  max-width: 380px;
+
+  /* Card internal Flexbox layout */
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-default);
+  position: relative;
+  transition: var(--transition);
+}
+
+/* Card Hover Effect (Objective & Hints) */
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-focus);
+}
+
+/* Card Header & Price */
+.card-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.plan-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.plan-description {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  min-height: 44px;
+  margin-bottom: 1.25rem;
+}
+
+.price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.currency {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.price {
+  font-size: 3.25rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.period {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   5. DELIVERABLE 2: Highlighted 'Popular' Plan
+   -------------------------------------------------------------------------- */
+.pricing-card.popular {
+  /* Highlight via border and deeper card shadow */
+  border: 2px solid var(--primary-color);
+  box-shadow: var(--shadow-popular);
+  background-color: #ffffff;
+
+  /* Elevate above neighboring cards on desktop */
+  transform: scale(1.04);
+  z-index: 2;
+}
+
+.pricing-card.popular:hover {
+  transform: scale(1.05) translateY(-8px);
+  box-shadow: var(--shadow-popular-hover);
+}
+
+/* Most Popular Badge / Ribbon */
+.popular-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px var(--primary-glow);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   6. Feature List (Flexbox Spacing & Alignment)
+   -------------------------------------------------------------------------- */
+.feature-list {
+  list-style: none;
+  /* flex-grow ensures the feature list expands, pushing CTA to bottom */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  margin-bottom: 2.25rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.feature-item .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* Included Feature */
+.feature-item.included .icon {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: var(--success-color);
+}
+
+/* Excluded Feature */
+.feature-item.excluded {
+  color: var(--text-light);
+  text-decoration: line-through;
+}
+
+.feature-item.excluded .icon {
+  background-color: var(--bg-card-alt);
+  color: var(--text-light);
+}
+
+/* --------------------------------------------------------------------------
+   7. Call-to-Action (CTA) Buttons & Hover Effects (Hints & Objective)
+   -------------------------------------------------------------------------- */
+.card-action {
+  /* In Flexbox column, margin-top: auto anchors buttons to bottom uniformly */
+  margin-top: auto;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  transition: var(--transition);
+}
+
+/* Secondary Button (Default Cards) */
+.btn-secondary {
+  background-color: var(--bg-card-alt);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+/* Secondary Button Hover Effect */
+.btn-secondary:hover {
+  background-color: #e2e8f0;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Primary Button (Popular Card) */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+/* Primary Button Hover Effect */
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(79, 70, 229, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Accessibility Focus States */
+.btn:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   8. DELIVERABLE 3: Responsive Stacking on Small Screens
+   -------------------------------------------------------------------------- */
+
+/* Tablet Viewports (≤ 980px) */
+@media (max-width: 980px) {
+  .pricing-table {
+    gap: 1.25rem;
+  }
+
+  .pricing-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .pricing-card.popular {
+    transform: scale(1.02);
+  }
+}
+
+/* Small Screens & Mobile (≤ 768px) - Stacking Layout */
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding-top: 1.25rem;
+  }
+
+  /* Switch Flexbox layout to vertical stack */
+  .pricing-table {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .pricing-card {
+    width: 100%;
+    max-width: 440px;
+  }
+
+  /* Reset scale on mobile so cards fit comfortably without overflow */
+  .pricing-card.popular {
+    transform: scale(1);
+    order: -1;
+    /* Place the featured plan at the top on mobile for higher conversion */
+  }
+
+  .pricing-card.popular:hover {
+    transform: translateY(-6px);
+  }
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Pricing Table</title>
+  <meta name="description"
+    content="A clean, responsive pricing table built strictly with HTML5 and CSS3 demonstrating Flexbox/Grid layouts, featured card highlighting, and hover transitions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Main Container -->
+  <main class="page-wrapper">
+
+    <!-- Header Section -->
+    <header class="section-header">
+      <span class="sub-badge">Flexible Plans</span>
+      <h1 class="main-title">Simple, Transparent Pricing</h1>
+      <p class="subtitle">Choose the perfect plan for your team. Switch or cancel anytime.</p>
+    </header>
+
+    <!-- DELIVERABLE 1 & 2: Pricing Table Container (Flexbox / Grid) -->
+    <section class="pricing-table" aria-label="Pricing Plans">
+
+      <!-- PLAN 1: BASIC -->
+      <article class="pricing-card">
+        <div class="card-header">
+          <h2 class="plan-title">Basic</h2>
+          <p class="plan-description">Essential features for individuals and small personal projects.</p>
+          <div class="price-container">
+            <span class="currency">$</span>
+            <span class="price">9</span>
+            <span class="period">/ month</span>
+          </div>
+        </div>
+
+        <ul class="feature-list" aria-label="Basic plan features">
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>Up to 5 Projects</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>10 GB Cloud Storage</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>Community Support</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>Basic Analytics</span>
+          </li>
+          <li class="feature-item excluded">
+            <span class="icon" aria-hidden="true">✕</span>
+            <span>Custom Domain</span>
+          </li>
+          <li class="feature-item excluded">
+            <span class="icon" aria-hidden="true">✕</span>
+            <span>24/7 Dedicated Support</span>
+          </li>
+        </ul>
+
+        <div class="card-action">
+          <button type="button" class="btn btn-secondary">Get Started</button>
+        </div>
+      </article>
+
+      <!-- PLAN 2: PRO (DELIVERABLE 2: Highlighted 'Popular' Plan) -->
+      <article class="pricing-card popular">
+        <!-- Highlight Badge -->
+        <div class="popular-badge" aria-label="Most Popular plan">Most Popular</div>
+
+        <div class="card-header">
+          <h2 class="plan-title">Pro</h2>
+          <p class="plan-description">Advanced power for growing businesses and demanding creators.</p>
+          <div class="price-container">
+            <span class="currency">$</span>
+            <span class="price">29</span>
+            <span class="period">/ month</span>
+          </div>
+        </div>
+
+        <ul class="feature-list" aria-label="Pro plan features">
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span><strong>Unlimited</strong> Projects</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>100 GB Cloud Storage</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>Priority Email Support</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>Advanced Analytics & Reports</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>Custom Domain Integration</span>
+          </li>
+          <li class="feature-item excluded">
+            <span class="icon" aria-hidden="true">✕</span>
+            <span>24/7 Dedicated Support</span>
+          </li>
+        </ul>
+
+        <div class="card-action">
+          <button type="button" class="btn btn-primary">Start Free Trial</button>
+        </div>
+      </article>
+
+      <!-- PLAN 3: ENTERPRISE -->
+      <article class="pricing-card">
+        <div class="card-header">
+          <h2 class="plan-title">Enterprise</h2>
+          <p class="plan-description">Full control, top security, and personalized support for scale.</p>
+          <div class="price-container">
+            <span class="currency">$</span>
+            <span class="price">79</span>
+            <span class="period">/ month</span>
+          </div>
+        </div>
+
+        <ul class="feature-list" aria-label="Enterprise plan features">
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span><strong>Unlimited</strong> Everything</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>1 TB Cloud Storage</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>Dedicated Account Manager</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>Real-time Custom Analytics</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>Custom Domain & SSL</span>
+          </li>
+          <li class="feature-item included">
+            <span class="icon" aria-hidden="true">✓</span>
+            <span>24/7 Phone & Slack Support</span>
+          </li>
+        </ul>
+
+        <div class="card-action">
+          <button type="button" class="btn btn-secondary">Contact Sales</button>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+</body>
+
+</html>
